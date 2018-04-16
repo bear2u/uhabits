@@ -23,6 +23,7 @@ import android.content.*;
 import android.os.*;
 import android.support.annotation.*;
 import android.support.v7.app.*;
+import android.util.Log;
 import android.view.*;
 
 import org.isoron.androidbase.*;
@@ -112,6 +113,8 @@ abstract public class BaseActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         Thread.setDefaultUncaughtExceptionHandler(getExceptionHandler());
+
+        Log.d("KTH","current activity name => " + getClass().getSimpleName());
     }
 
     protected Thread.UncaughtExceptionHandler getExceptionHandler()

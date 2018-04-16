@@ -14,7 +14,6 @@ ext {
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as Integer
-    buildToolsVersion BUILD_TOOLS_VERSION
 
     if(project.hasProperty("LOOP_STORE_FILE")) {
         signingConfigs {
@@ -59,7 +58,7 @@ android {
         }
 
         debug {
-            testCoverageEnabled true
+//            testCoverageEnabled true
         }
     }
 
@@ -89,6 +88,7 @@ android {
     sourceSets {
         main.assets.srcDirs += '../uhabits-core/src/main/resources/'
     }
+    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -177,7 +177,7 @@ task coverageReport(type: JacocoReport) {
     sourceDirectories = files(androidSrc)
     classDirectories = files(fileTree(dir: androidClasses, excludes: excludes))
     executionData = files(jvmExecData, connectedExecData)
-    jacocoClasspath = configurations['androidJacocoAnt']
+//    jacocoClasspath = configurations['androidJacocoAnt']
 
     reports {
         html.enabled = true
